@@ -211,7 +211,10 @@ music_tools = [
     check_for_songs
 ]
 from langchain_openai import ChatOpenAI
-llm = ChatOpenAI()
+llm = ChatOpenAI(
+    model="gpt-4o-mini",
+    temperature=0.1
+)
 llm_with_music_tools = llm.bind_tools(music_tools)
 
 from langgraph.prebuilt import ToolNode
