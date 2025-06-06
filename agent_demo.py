@@ -377,7 +377,8 @@ import uuid
 thread_id = uuid.uuid4()
 
 # Define the user's question about music recommendations
-question = "I like the Rolling Stones. What songs do you recommend by them or by other artists that I might like?"
+# testing a band name with typos
+question = "I like roling sotnes. What songs do you recommend by them or by other artists that I might like?"
 
 # Set up configuration with the thread ID for maintaining conversation context
 config = {"configurable": {"thread_id": thread_id}}
