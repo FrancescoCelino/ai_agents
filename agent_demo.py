@@ -1,3 +1,5 @@
+# taken from https://levelup.gitconnected.com/building-a-multi-agent-ai-system-with-langgraph-and-langsmith-6cb70487cd81
+
 import os
 from dotenv import load_dotenv
 from langsmith import utils
@@ -321,7 +323,7 @@ def should_continue(state: State, config: RunnableConfig):
     
 from langgraph.graph import StateGraph, START, END
 from langsmith import utils
-from langsmith import show_graph
+# from langsmith import show_graph
 # Create a new StateGraph instance for the music workflow
 music_workflow = StateGraph(State)
 
@@ -358,8 +360,13 @@ music_catalog_subagent = music_workflow.compile(
     store=in_memory_store
 )
 
-# Display the compiled graph structure
-show_graph(music_catalog_subagent)
+# Optional: Display the compiled graph structure (if you want to visualize it)
+# You can uncomment the following lines if you have the necessary dependencies
+try:
+    from IPython.display import Image, display
+    display(Image(music_catalog_subagent.get_graph().draw_mermaid_png()))
+except ImportError:
+    print("Graph visualization not available - install IPython and graphviz for visualization")
 
 import uuid
 
